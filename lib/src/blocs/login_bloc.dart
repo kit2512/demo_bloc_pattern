@@ -2,7 +2,7 @@ import 'dart:async';
 
 import '../validators/validation.dart';
 
-class LoginBlog {
+class LoginBloc {
   final StreamController<String> _userController = StreamController<String>();
   final StreamController<String> _passwordController =
       StreamController<String>();
