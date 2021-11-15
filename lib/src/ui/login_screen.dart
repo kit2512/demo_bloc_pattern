@@ -1,10 +1,8 @@
-import 'package:demo_bloc_pattern/src/blocs/login_bloc.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  final _loginBlog = LoginBlog();
   final _usernameController = TextEditingController();
   final _passowrdController = TextEditingController();
 
@@ -20,52 +18,30 @@ class LoginScreen extends StatelessWidget {
               "Login",
               style: Theme.of(context).textTheme.headline4,
             ),
-            StreamBuilder<String>(
-              stream: _loginBlog.userStream,
-              builder: (context, snapshot) {
-                return TextField(
-                  controller: _usernameController,
-                  decoration: InputDecoration(
-                    hintText: "username",
-                    errorText:
-                        snapshot.hasError ? snapshot.error.toString() : null,
-                  ),
-                );
-              },
+            TextField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                hintText: "username",
+                // TODO: Add username error text
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
-            StreamBuilder<String>(
-              stream: _loginBlog.passswordStream,
-              initialData: null,
-              builder: (context, snapshot) {
-                return TextField(
-                  controller: _passowrdController,
-                  decoration: InputDecoration(
-                    hintText: "password",
-                    errorText:
-                        snapshot.hasError ? snapshot.error.toString() : null,
-                  ),
-                  obscureText: true,
-                );
-              },
+            TextField(
+              controller: _passowrdController,
+              decoration: InputDecoration(
+                hintText: "password",
+                // TODO: Add password error text
+              ),
+              obscureText: true,
             ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
               onPressed: () {
-                if (_loginBlog.isValidInfo(
-                    _usernameController.text, _passowrdController.text)) {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Scaffold(
-                      body: Center(
-                        child: Text("Success"),
-                      ),
-                    );
-                  }));
-                }
+                // TODO : Validate then navigate to Home
               },
               child: const Text("Login"),
             )
