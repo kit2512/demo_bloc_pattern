@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
+  // TODO: create LoginBloc object
+
   final _usernameController = TextEditingController();
   final _passowrdController = TextEditingController();
 
@@ -41,7 +43,7 @@ class LoginScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO : Validate then navigate to Home
+                // TODO : Validate then navigate to Success
               },
               child: const Text("Login"),
             )
